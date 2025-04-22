@@ -14,16 +14,18 @@ export default function HomePage() {
             0.1,
             1000
         );
+        console.log("canvasRef", canvasRef.current);
         if (!canvasRef.current) return;
         const renderer = new THREE.WebGLRenderer({
             canvas: canvasRef.current,
             alpha: true,
         });
         renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
 
         const geometry = new THREE.IcosahedronGeometry(2, 1);
         const material = new THREE.MeshStandardMaterial({
-            color: 0x0077ff,
+            color: 0xffffff,
             wireframe: true,
         });
         const mesh = new THREE.Mesh(geometry, material);
@@ -33,7 +35,10 @@ export default function HomePage() {
         light.position.set(5, 5, 5);
         scene.add(light);
 
-        camera.position.z = 5;
+        const ambientLight = new THREE.AmbientLight(0xffffff, 1);
+        scene.add(ambientLight);
+
+        camera.position.z = 10;
 
         const animate = function () {
             requestAnimationFrame(animate);
@@ -55,7 +60,7 @@ export default function HomePage() {
     }, []);
 
     return (
-        <div className="relative h-screen w-screen overflow-hidden bg-black text-white">
+        <div className="relative h-screen w-screen overflow-hidden text-white">
             <canvas ref={canvasRef} className="absolute inset-0 z-0" />
             <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
                 <h1 className="text-4xl md:text-6xl font-bold mb-4">
@@ -74,7 +79,7 @@ export default function HomePage() {
                             View Resume
                         </a>
                     </Button>
-                    <Button asChild>
+                    <Button asChild variant={"outline"}>
                         <a
                             href="https://linkedin.com/in/bpompi"
                             target="_blank"
