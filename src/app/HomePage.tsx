@@ -1,63 +1,11 @@
 "use client";
 import { useEffect, useRef } from "react";
-import * as THREE from "three";
 import { Button } from "@/components/ui/button";
 
 export default function HomePage() {
     const canvasRef = useRef(null);
 
-    useEffect(() => {
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(
-            75,
-            window.innerWidth / window.innerHeight,
-            0.1,
-            1000
-        );
-        console.log("canvasRef", canvasRef.current);
-        if (!canvasRef.current) return;
-        const renderer = new THREE.WebGLRenderer({
-            canvas: canvasRef.current,
-            alpha: true,
-        });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setPixelRatio(window.devicePixelRatio);
-
-        const geometry = new THREE.IcosahedronGeometry(2, 1);
-        const material = new THREE.MeshStandardMaterial({
-            color: 0xffffff,
-            wireframe: true,
-        });
-        const mesh = new THREE.Mesh(geometry, material);
-        scene.add(mesh);
-
-        const light = new THREE.PointLight(0xffffff, 1);
-        light.position.set(5, 5, 5);
-        scene.add(light);
-
-        const ambientLight = new THREE.AmbientLight(0xffffff, 1);
-        scene.add(ambientLight);
-
-        camera.position.z = 10;
-
-        const animate = function () {
-            requestAnimationFrame(animate);
-            mesh.rotation.x += 0.005;
-            mesh.rotation.y += 0.005;
-            renderer.render(scene, camera);
-        };
-
-        animate();
-
-        const handleResize = () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        };
-
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
-    }, []);
+    useEffect(() => {});
 
     return (
         <div className="relative h-screen w-screen overflow-hidden text-white">
