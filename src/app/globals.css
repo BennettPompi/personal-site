@@ -110,7 +110,33 @@
     --sidebar-border: oklch(1 0 0 / 10%);
     --sidebar-ring: oklch(0.488 0.243 264.376);
 }
+.animate-typing {
+    box-sizing: content-box;
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 0.5em solid #41FF00;
+    font-size: 3.75rem;
+    color: #41FF00;
+    margin-top: 0;
+    animation: typing 2s steps(13) 1s forwards, blink 0.8s step-end infinite;
+    animation-fill-mode: forwards;
+}
 
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 13ch;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
 @layer base {
     * {
         @apply border-border outline-ring/50;
