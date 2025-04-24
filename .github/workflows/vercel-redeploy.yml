@@ -8,4 +8,9 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Call Vercel deploy hook
-              run: curl -X POST ${{ secrets.VERCEL_RDP_HOOK }}
+              run: |
+                  response=$(curl -s -o /dev/null -w "%{http_code}" -X POST ${{ secrets.VERCEL_RDP_HOOK }})
+                  if [ "$response" -ne 200 ]; then
+                    echo "Deploy hook failed with status $response"
+                    exit 1
+                  fi
