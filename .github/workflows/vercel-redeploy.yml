@@ -1,0 +1,13 @@
+name: Trigger Vercel Redeploy
+
+on:
+    push:
+        branches:
+            - main # or whatever branch you deploy from
+
+jobs:
+    redeploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Call Vercel deploy hook
+              run: curl -X POST ${{ secrets.VERCEL_RDP_HOOK }}
