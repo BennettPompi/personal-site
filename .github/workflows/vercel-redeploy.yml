@@ -1,9 +1,7 @@
 name: Trigger Vercel Redeploy
 
 on:
-    push:
-        branches:
-            - main # or whatever branch you deploy from
+    workflow_dispatch:
 
 jobs:
     redeploy:
