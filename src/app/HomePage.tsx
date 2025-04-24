@@ -17,6 +17,10 @@ export default function HomePage() {
                 <p className="text-lg md:text-2xl mb-6">
                     Software Engineer | Full-Stack | Product-Focused
                 </p>
+                <p className="text-lg md:text-2xl mb-6">
+                    (In case you can't tell, still very much working on this
+                    site)
+                </p>
                 <div className="flex gap-4">
                     <Button asChild>
                         <a
