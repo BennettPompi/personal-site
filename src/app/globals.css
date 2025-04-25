@@ -119,7 +119,7 @@
     font-size: 3.75rem;
     color: #41FF00;
     margin-top: 0;
-    animation: typing 2s steps(13) 1s forwards, blink 0.8s step-end infinite;
+    animation: typing 2s steps(13) .75s forwards, blink 0.8s step-end infinite;
     animation-fill-mode: forwards;
 }
 
