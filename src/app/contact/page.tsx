@@ -4,7 +4,7 @@ export default function ContactPage() {
     return (
         <div className="flex flex-col items-center pt-8 space-y-4">
             <Image
-                src="/images/busanNightLS.JPEG"
+                src="/images/busanNightLS.jpg"
                 alt="nighttime shot of Busan"
                 width={600}
                 height={200}
