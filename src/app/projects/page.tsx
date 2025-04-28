@@ -1,9 +1,88 @@
-export default function ProjectsPage() {
+import React from "react";
+import {
+    Collapsible,
+    CollapsibleTrigger,
+    CollapsibleContent,
+} from "@/components/ui/collapsible";
+import { ChevronDown } from "lucide-react";
+
+export default async function ProjectsPage() {
+    const projects = [
+        {
+            name: "Personal Website",
+            link: "personal-site",
+            details: [
+                "Built with Next.js and React",
+                "Styled using Tailwind CSS",
+                "Hosted on Vercel",
+            ],
+        },
+        // Add other project entries here
+    ];
+
+    // Fetch last commit timestamp for each project
+    const projectsWithCommits = await Promise.all(
+        projects.map(async (project) => {
+            const res = await fetch(
+                `https://api.github.com/repos/BennettPompi/${project.link}/commits?per_page=1`
+            );
+            const data = await res.json();
+            return {
+                ...project,
+                lastCommit: data[0]?.commit?.committer?.date ?? "Unknown date",
+            };
+        })
+    );
+
     return (
-        <div className="flex flex-col items-center justify-center h-screen">
-            <h1 className="text-4xl font-bold">Projects</h1>
-            <p className="mt-4 text-lg">CONTENT HERE</p>
-            <p className="mt-2 text-lg">MORE CONTENT</p>
+        <div className="px-4 py-8 max-w-3xl mx-auto">
+            <h1 className="text-4xl font-bold mb-6">
+                {"Projects (Watch This Space)"}
+            </h1>
+            {projectsWithCommits.map((project) => (
+                <Collapsible key={project.name} className="mb-8">
+                    <CollapsibleTrigger asChild>
+                        <button className="w-full flex items-center justify-between text-left">
+                            <div className="flex flex-col items-start space-y-1">
+                                <h2 className="text-2xl font-semibold">
+                                    {project.name}
+                                </h2>
+                                {project.link && (
+                                    <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+                                        <a
+                                            href={
+                                                "https://github.com/BennettPompi/" +
+                                                project.link
+                                            }
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="hover:underline"
+                                        >
+                                            {"https://github.com/BennettPompi/" +
+                                                project.link}
+                                        </a>
+                                        <span>•</span>
+                                        <span>
+                                            {"Last Commit at: " +
+                                                new Date(
+                                                    project.lastCommit
+                                                ).toLocaleString()}
+                                        </span>
+                                    </div>
+                                )}
+                            </div>
+                            <ChevronDown />
+                        </button>
+                    </CollapsibleTrigger>
+                    <CollapsibleContent className="radix-collapsible-content">
+                        <ul className="list-disc list-inside mt-2 space-y-1">
+                            {project.details.map((d, idx) => (
+                                <li key={idx}>{d}</li>
+                            ))}
+                        </ul>
+                    </CollapsibleContent>
+                </Collapsible>
+            ))}
         </div>
     );
 }

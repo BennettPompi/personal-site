@@ -113,7 +113,7 @@ export default function AboutPage() {
                 />
             </div>
 
-            <h1 className="text-4xl font-bold">Bio</h1>
+            <h1 className="text-4xl font-bold">About Me</h1>
             <div className="w-full md:w-1/3 text-center mb-16">
                 {paragraphs.map((text, idx) => (
                     <p key={idx} className="mt-4 text-lg">

@@ -115,11 +115,11 @@
     width: 0;
     overflow: hidden;
     white-space: nowrap;
-    border-right: 0.5em solid #41FF00;
+    border-right: 0.5em solid #41ff00;
     font-size: 3.75rem;
-    color: #41FF00;
+    color: #41ff00;
     margin-top: 0;
-    animation: typing 2s steps(13) .75s forwards, blink 0.8s step-end infinite;
+    animation: typing 2s steps(13) 0.75s forwards, blink 0.8s step-end infinite;
     animation-fill-mode: forwards;
 }
 
@@ -144,4 +144,33 @@
     body {
         @apply bg-background text-foreground;
     }
+}
+
+/* Collapsible open/close animations */
+@keyframes slide-down {
+    from {
+        height: 0;
+    }
+    to {
+        height: var(--radix-collapsible-content-height);
+    }
+}
+@keyframes slide-up {
+    from {
+        height: var(--radix-collapsible-content-height);
+    }
+    to {
+        height: 0;
+    }
+}
+
+/* Apply to Radix Collapsible content */
+.radix-collapsible-content {
+    overflow: hidden;
+}
+.radix-collapsible-content[data-state="open"] {
+    animation: slide-down 300ms ease-out forwards;
+}
+.radix-collapsible-content[data-state="closed"] {
+    animation: slide-up 300ms ease-in forwards;
 }

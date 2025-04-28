@@ -2,9 +2,15 @@ import Image from "next/image";
 
 export default function ContactPage() {
     return (
-        <div className="flex flex-col items-center justify-center h-screen">
-            <h1 className="text-4xl font-bold">Contact Me</h1>
-            <div className="mt-4 flex items-center gap-2 text-lg">
+        <div className="flex flex-col items-center pt-8 space-y-4">
+            <Image
+                src="/images/busanNightLS.JPEG"
+                alt="nighttime shot of Busan"
+                width={600}
+                height={200}
+            />
+            <h1 className="text-4xl font-bold">Contact Me!</h1>
+            <div className="flex items-center gap-2 text-lg">
                 <Image
                     src="/images/Gmail_icon_(2020).svg"
                     alt="Email Icon"
@@ -18,7 +24,7 @@ export default function ContactPage() {
                     bennettp2002@gmail.com
                 </a>
             </div>
-            <div className="mt-2 flex items-center gap-2 text-lg">
+            <div className="flex items-center gap-2 text-lg">
                 <Image
                     src="/images/LinkedIn_icon.svg"
                     alt="LinkedIn Icon"
@@ -34,7 +40,7 @@ export default function ContactPage() {
                     linkedin.com/in/bpompi
                 </a>
             </div>
-            <div className="mt-2 flex items-center gap-2 text-lg">
+            <div className="flex items-center gap-2 text-lg">
                 <Image
                     src="/images/github-mark-white.png"
                     alt="GitHub Icon"
