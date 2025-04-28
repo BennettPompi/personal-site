@@ -25,7 +25,7 @@ export default function AboutPage() {
         <div className="flex flex-col items-center justify-start min-h-screen space-y-8 px-4 pt-8">
             <div>
                 <Image
-                    src="/deer_bennett.jpg"
+                    src="/images/deer_bennett.jpg"
                     alt="Description"
                     width={200}
                     height={120}
@@ -40,7 +40,7 @@ export default function AboutPage() {
             </div>
             <div>
                 <Image
-                    src="/kyoto_bridge.jpeg"
+                    src="/images/kyoto_bridge.jpeg"
                     alt="Description"
                     width={600}
                     height={400}

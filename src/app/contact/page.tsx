@@ -6,7 +6,7 @@ export default function ContactPage() {
             <h1 className="text-4xl font-bold">Contact Me</h1>
             <div className="mt-4 flex items-center gap-2 text-lg">
                 <Image
-                    src="/Gmail_icon_(2020).svg"
+                    src="/images/Gmail_icon_(2020).svg"
                     alt="Email Icon"
                     width={24}
                     height={24}
@@ -20,7 +20,7 @@ export default function ContactPage() {
             </div>
             <div className="mt-2 flex items-center gap-2 text-lg">
                 <Image
-                    src="/LinkedIn_icon.svg"
+                    src="/images/LinkedIn_icon.svg"
                     alt="LinkedIn Icon"
                     width={24}
                     height={24}
@@ -36,7 +36,7 @@ export default function ContactPage() {
             </div>
             <div className="mt-2 flex items-center gap-2 text-lg">
                 <Image
-                    src="/github-mark-white.png"
+                    src="/images/github-mark-white.png"
                     alt="GitHub Icon"
                     width={24}
                     height={24}
