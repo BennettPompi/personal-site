@@ -4,13 +4,11 @@ import NavItem from "./NavItem";
 import {
     NavigationMenu,
     NavigationMenuContent,
-    NavigationMenuIndicator,
     NavigationMenuItem,
     NavigationMenuLink,
     NavigationMenuList,
     NavigationMenuTrigger,
     navigationMenuTriggerStyle,
-    NavigationMenuViewport,
 } from "@/components/ui/navigation-menu";
 import Link from "next/link";
 
