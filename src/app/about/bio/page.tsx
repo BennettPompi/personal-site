@@ -1,4 +1,13 @@
+"use client";
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
+} from "@/components/ui/carousel";
 import Image from "next/image";
+
 export default function AboutPage() {
     const paragraphs = [
         `
@@ -17,9 +26,81 @@ export default function AboutPage() {
         `
             When I'm not programming, you can generally find me at the gym, watching an old movie, 
             or stressing out about the Detroit Lions (This includes the offseason).
-            I also like to take photos on an ancient film camera I bought on eBay, so here's one of those.
+            I also like to take photos on an ancient film camera I bought on eBay, so here's some of those.
             Enjoy! 
         `,
+    ];
+    const images = [
+        <Image
+            src="/images/kyoto_bridge.jpeg"
+            alt="Description"
+            width={600}
+            height={400}
+            className="mb-16"
+        />,
+        <Image
+            src="/images/bamboo.jpg"
+            alt="Description"
+            width={600}
+            height={400}
+            className="mb-16"
+        />,
+        <Image
+            src="/images/alley_dark.jpg"
+            alt="Description"
+            width={600}
+            height={400}
+            className="mb-16"
+        />,
+        <Image
+            src="/images/busanBeach.jpeg"
+            alt="Description"
+            width={600}
+            height={400}
+            className="mb-16"
+        />,
+        <Image
+            src="/images/couple_fuji.jpg"
+            alt="Description"
+            width={600}
+            height={400}
+            className="mb-16"
+        />,
+        <Image
+            src="/images/gallan.jpeg"
+            alt="Description"
+            width={600}
+            height={400}
+            className="mb-16"
+        />,
+        <Image
+            src="/images/sunset.jpg"
+            alt="Description"
+            width={600}
+            height={400}
+            className="mb-16"
+        />,
+        <Image
+            src="/images/umich-sign.jpg"
+            alt="Description"
+            width={600}
+            height={400}
+            className="mb-16"
+        />,
+        <Image
+            src="/images/venice.jpg"
+            alt="Description"
+            width={600}
+            height={400}
+            className="mb-16"
+        />,
+        // <Image
+        //     src="/images/"
+        //     alt="Description"
+        //     width={600}
+        //     height={400}
+        //     className="mb-16"
+        // />,
     ];
     return (
         <div className="flex flex-col items-center justify-start min-h-screen space-y-8 px-4 pt-8">
@@ -34,19 +115,26 @@ export default function AboutPage() {
 
             <h1 className="text-4xl font-bold">Bio</h1>
             <div className="w-full md:w-1/3 text-center mb-16">
-                {paragraphs.map((text) => (
-                    <p className="mt-4 text-lg">{text}</p>
+                {paragraphs.map((text, idx) => (
+                    <p key={idx} className="mt-4 text-lg">
+                        {text}
+                    </p>
                 ))}
             </div>
-            <div>
-                <Image
-                    src="/images/kyoto_bridge.jpeg"
-                    alt="Description"
-                    width={600}
-                    height={400}
-                    className="mb-16"
-                />
-            </div>
+            <Carousel className="relative w-[600px]" opts={{ align: "center" }}>
+                <CarouselContent className="flex">
+                    {images.map((image, idx) => (
+                        <CarouselItem
+                            key={idx}
+                            className="flex-shrink-0 basis-full"
+                        >
+                            {image}
+                        </CarouselItem>
+                    ))}
+                </CarouselContent>
+                <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2 z-10" />
+                <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2 z-10" />
+            </Carousel>
         </div>
     );
 }

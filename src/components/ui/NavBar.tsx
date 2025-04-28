@@ -16,7 +16,7 @@ export default function NavBar() {
     const pathname = usePathname();
     console.log(pathname);
     return (
-        <nav className="fixed top-0 left-0 w-full bg-background z-10">
+        <nav className="fixed top-0 left-0 w-full bg-background/50 backdrop-blur-md z-10">
             <div className="container mx-auto flex space-x-6 items-center p-4">
                 <NavItem text={"Home"} href="/" pathname={pathname} />
                 {/*<NavItem text={"About"} href="/about" pathname={pathname} />*/}
