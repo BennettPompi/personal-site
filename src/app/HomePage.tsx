@@ -9,12 +9,12 @@ export default function HomePage() {
 
     return (
         <div className="relative h-screen w-screen overflow-hidden">
-            <canvas ref={canvasRef} className="absolute inset-0 z-0" />
+            <canvas ref={canvasRef} className="absolute inset-0 " />
             <div className="flex h-screen w-screen items-center justify-center">
-                <p className="absolute top-1/8 left-1/2 transform translate-x-[calc(-50%+0.25em)] text-6xl font-mono animate-typing overflow-hidden whitespace-nowrap border-r-[0.5em] box-content z-10">
+                <p className="absolute top-1/8 left-1/2 transform translate-x-[calc(-50%+0.25em)] text-6xl font-mono animate-typing overflow-hidden whitespace-nowrap border-r-[0.5em] box-content">
                     Hello, world!
                 </p>
-                <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center w-full md:w-1/3">
+                <div className="relative flex h-full flex-col items-center justify-center px-6 text-center w-full md:w-1/3">
                     <h1 className="text-4xl md:text-6xl font-bold mb-4">
                         Bennett Pompi
                     </h1>
