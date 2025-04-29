@@ -23,7 +23,7 @@ export default function HomePage() {
                     </p>
                     <p className="text-lg md:text-2xl mb-6">
                         {
-                            "This is mostly just a place for me link stuff I'm working on / serve as a sort of living resume. Enjoy!"
+                            "This is mostly just a place for me to link stuff I'm working on / serve as a sort of living resume. Enjoy!"
                         }
                     </p>
                     <div className="flex gap-4">
