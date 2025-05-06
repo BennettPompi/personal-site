@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 const GRID_SIZE = 20;
 const createGrid = () =>
@@ -50,6 +50,8 @@ const GameOfLife = () => {
         setGrid(newGrid);
     };
 
+    const memoizedGetNextGeneration = useCallback(getNextGeneration, [grid]);
+
     const generateRandomGrid = () => {
         const newGrid = createGrid().map((row) =>
             row.map(() => (Math.random() > 0.55 ? 1 : 0))
@@ -69,13 +71,13 @@ const GameOfLife = () => {
 
     useEffect(() => {
         if (!isRunning) return;
-        const interval = setInterval(() => getNextGeneration(), 500);
+        const interval = setInterval(() => memoizedGetNextGeneration(), 500);
         return () => clearInterval(interval);
-    }, [isRunning, grid]);
+    }, [isRunning, memoizedGetNextGeneration]);
 
     return (
         <div className="flex flex-col items-center space-y-4">
-            <h1 className="text-2xl font-bold">Conway's Game of Life</h1>
+            <h1 className="text-2xl font-bold">{"Conway's Game of Life"}</h1>
             <div className="flex space-x-4">
                 <button
                     onClick={generateRandomGrid}
